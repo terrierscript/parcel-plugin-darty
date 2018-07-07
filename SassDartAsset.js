@@ -1,4 +1,4 @@
-const JSAsset = require("parcel-bundler/src/assets/JSAsset");
+const JSAsset = require("parcel-bundler/lib/assets/JSAsset");
 
 const replaceSelfLocation = js =>
   js.replace(/self\.location/g, "self.___location");

@@ -1,4 +1,4 @@
-const JSPackager = require("parcel-bundler/src/packagers/JSPackager");
+const JSPackager = require("parcel-bundler/lib/packagers/JSPackager");
 
 const code = `
 exports.statSync = function(name) {
