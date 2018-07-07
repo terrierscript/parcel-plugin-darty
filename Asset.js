@@ -1,37 +1,17 @@
 const JSAsset = require("parcel-bundler/src/assets/JSAsset");
-const FsMockAsset = require("./FsMockAsset");
-const fsVisitor = require("parcel-bundler/src/visitors/fs");
-const insertGlobals = require("parcel-bundler/src/visitors/globals");
 
-const walk = require("babylon-walk");
-
-const Visitor = {
-  Identifier(node, asset, ancestors) {
-    if (node.name !== "location") {
-      return;
-    }
-    console.log(node);
-    if (ancestors.type !== "MemberExpression") {
-      return;
-    }
-    console.log(node, asset);
-  }
-};
+const replaceSelfLocation = js =>
+  js.replace(/self\.location/g, "self.___location");
 module.exports = class DartCompiledAsset extends JSAsset {
   isTarget() {
     return this.name.indexOf("sass.dart.js") > 0;
   }
 
-  async generate() {
-    // this.depAssets.set("fs", new FsMockAsset("fsmock", { rootDir: __dirname }));
-    const result = await super.generate();
+  async postProcess(generated) {
     if (!this.isTarget()) {
-      return result;
+      return generated;
     }
-    const { js, map } = result;
-    return {
-      js: js.replace(/self\.location/g, "self.___location"),
-      map
-    };
+    generated[0].value = replaceSelfLocation(generated[0].value);
+    return generated;
   }
 };

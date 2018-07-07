@@ -1,7 +1,7 @@
 const JSAsset = require("parcel-bundler/src/assets/JSAsset");
 
 const code = `
-{
+self.fs = {
   statSync(name) {
     return {
       isFile: () => {
