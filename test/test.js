@@ -9,6 +9,6 @@ describe("Asset", function() {
       { rootDir: __dirname, target: "browser" }
     );
     const processed = await instance.process();
-    // console.log(processed.js);
+    console.log(processed.js);
   });
 });
