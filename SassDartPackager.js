@@ -1,17 +1,7 @@
 const JSPackager = require("parcel-bundler/lib/packagers/JSPackager");
 
-const code = `
-exports.statSync = function(name) {
-  return {
-    isFile: function() {
-      return false;
-    },
-    isDirectory: function() {
-      return false;
-    }
-  };
-};
-`;
+const code = require("fs").readFileSync("./fs-mock.js");
+
 module.exports = class SassDartPackager extends JSPackager {
   async end() {
     await this.writeModule("fs", code);
