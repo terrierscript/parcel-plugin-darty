@@ -2,7 +2,8 @@ const JSAsset = require("parcel-bundler/src/assets/JSAsset");
 
 const replaceSelfLocation = js =>
   js.replace(/self\.location/g, "self.___location");
-module.exports = class DartCompiledAsset extends JSAsset {
+
+module.exports = class SassDartAsset extends JSAsset {
   isTarget() {
     return this.name.indexOf("sass.dart.js") > 0;
   }

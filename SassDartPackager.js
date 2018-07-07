@@ -13,7 +13,7 @@ exports.statSync = function(name) {
   };
 };
 `;
-module.exports = class Packager extends JSPackager {
+module.exports = class SassDartPackager extends JSPackager {
   async end() {
     await this.writeModule("fs", code);
     await super.end();
