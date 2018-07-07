@@ -16,3 +16,5 @@ function foo() {
   if (!!self.location) return self.location.href;
   return;
 }
+
+self.require("fs");

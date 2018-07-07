@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "mocha": "^5.2.0",
-    "parcel-bundler": "^1.9.4"
+    "parcel-bundler": "github:parcel-bundler/parcel"
   },
   "devDependencies": {
     "sass": "^1.9.0"
