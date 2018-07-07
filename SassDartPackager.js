@@ -1,5 +1,4 @@
 const JSPackager = require("parcel-bundler/src/packagers/JSPackager");
-const lineCounter = require("parcel-bundler/src/utils/lineCounter");
 
 const code = `
 exports.statSync = function(name) {
