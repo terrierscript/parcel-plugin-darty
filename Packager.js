@@ -15,7 +15,6 @@ exports.statSync = function(name) {
 `;
 module.exports = class Packager extends JSPackager {
   async end() {
-    console.log("fs inject");
     await this.writeModule("fs", code);
     await super.end();
   }
