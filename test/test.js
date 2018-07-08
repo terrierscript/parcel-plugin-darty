@@ -1,5 +1,5 @@
 const assert = require("assert");
-const Asset = require("../Asset");
+const Asset = require("../SassDartAsset");
 const path = require("path");
 
 describe("Asset", function() {
