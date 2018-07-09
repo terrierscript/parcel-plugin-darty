@@ -11,5 +11,8 @@
   },
   "peerDependencies": {
     "parcel-bundler": "^1.9.4"
+  },
+  "scripts": {
+    "test": "yarn parcel test/test2.js"
   }
 }
