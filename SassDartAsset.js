@@ -18,7 +18,6 @@ module.exports = class SassDartAsset extends JSAsset {
     console.log("pretranssss");
 
     await super.pretransform();
-    console.log("pretranssss");
     if (!this.isTarget()) {
       return;
     }
@@ -26,7 +25,6 @@ module.exports = class SassDartAsset extends JSAsset {
     this.appendBuffer();
   }
   async postProcess(generated) {
-    console.log("postpro");
     if (!this.isTarget()) {
       return generated;
     }
