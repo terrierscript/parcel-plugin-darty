@@ -3,6 +3,12 @@ const JSAsset = require("parcel-bundler/src/assets/JSAsset");
 const replaceSelfLocation = js =>
   js.replace(/self\.location/g, "self.___location");
 
+const appendLocation = `
+self.___location = {
+  href: "/"
+}
+`;
+
 module.exports = class SassDartAsset extends JSAsset {
   isTarget() {
     return this.name.indexOf("sass.dart.js") > 0;
