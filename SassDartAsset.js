@@ -18,6 +18,7 @@ module.exports = class SassDartAsset extends JSAsset {
     if (!this.isTarget()) {
       return;
     }
+    this.globals.set("__location", appendLocation);
   }
   async postProcess(generated) {
     if (!this.isTarget()) {
