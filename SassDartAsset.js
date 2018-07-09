@@ -4,7 +4,7 @@ const replaceSelfLocation = js =>
   js.replace(/self\.location/g, "self.___location");
 
 const appendLocation = `
-self.___location = {
+global.___location = {
   href: "/"
 }
 `;
