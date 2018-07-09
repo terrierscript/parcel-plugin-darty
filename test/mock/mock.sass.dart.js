@@ -1,14 +1,6 @@
 self.location = {
   get href() {
-    return (
-      "file://" +
-      (function() {
-        var cwd = process.cwd();
-        if (process.platform != "win32") return cwd;
-        return "/" + cwd.replace(/\\/g, "/");
-      })() +
-      "/"
-    );
+    return "/";
   }
 };
 
@@ -16,5 +8,3 @@ function foo() {
   if (!!self.location) return self.location.href;
   return;
 }
-
-self.require("fs");

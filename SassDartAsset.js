@@ -1,7 +1,7 @@
 const JSAsset = require("parcel-bundler/src/assets/JSAsset");
-
-const replaceSelfLocation = js =>
-  js.replace(/self\.location/g, "self.___location");
+const visitor = require("./visitor");
+// const replaceSelfLocation = js =>
+//   js.replace(/self\.location/g, "self.___location");
 
 module.exports = class SassDartAsset extends JSAsset {
   isTarget() {
@@ -12,12 +12,13 @@ module.exports = class SassDartAsset extends JSAsset {
     if (!this.isTarget()) {
       return;
     }
+    this.traverse(visitor);
   }
-  async postProcess(generated) {
-    if (!this.isTarget()) {
-      return generated;
-    }
-    generated[0].value = replaceSelfLocation(generated[0].value);
-    return generated;
-  }
+  // async postProcess(generated) {
+  //   if (!this.isTarget()) {
+  //     return generated;
+  //   }
+  //   generated[0].value = replaceSelfLocation(generated[0].value);
+  //   return generated;
+  // }
 };
