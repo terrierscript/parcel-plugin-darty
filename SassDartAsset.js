@@ -24,7 +24,7 @@ module.exports = class SassDartAsset extends JSAsset {
       return;
     }
     // console.log("pretrans");
-    // this.appendBuffer();
+    this.appendBuffer();
   }
   async postProcess(generated) {
     // console.log("postProcess", this.name);
