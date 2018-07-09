@@ -11,20 +11,24 @@ module.exports = class SassDartAsset extends JSAsset {
     this.addDependency("buffer");
     this.globals.set(
       "buffer",
-      'self.Buffer = require("buffer").Buffer;console.log("SDA")'
+      'self.Buffer = require("buffer").Buffer;console.log("This is parcel-plugin-darty")'
     );
+    console.log(this.globals);
   }
   async pretransform() {
-    console.log("pretranssss");
+    // console.log("pretranssss", this.name);
 
     await super.pretransform();
+    // console.log(this.name);
     if (!this.isTarget()) {
       return;
     }
-    console.log("pretrans");
+    // console.log("pretrans");
     this.appendBuffer();
   }
   async postProcess(generated) {
+    // console.log("postProcess", this.name);
+
     if (!this.isTarget()) {
       return generated;
     }

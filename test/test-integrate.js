@@ -5,7 +5,7 @@ const Path = require("path");
 const file = Path.join(__dirname, "./test2.js");
 
 function runBundle() {
-  const bundler = new Bundler(file, { outDir: "./dist" });
+  const bundler = new Bundler(file, { outDir: "./dist",cache: false });
   bundler.addAssetType("js", require.resolve("../SassDartAsset.js"));
   bundler.addPackager("js", require.resolve("../SassDartPackager.js"));
 
