@@ -9,11 +9,11 @@ module.exports = class SassDartAsset extends JSAsset {
   }
   appendBuffer() {
     this.addDependency("buffer");
+    // this.addDependency("process");
     this.globals.set(
       "buffer",
-      'self.Buffer = require("buffer").Buffer;console.log("This is parcel-plugin-darty")'
+      'this.Buffer = require("buffer").Buffer;console.log("This is parcel-plugin-darty")'
     );
-    console.log(this.globals);
   }
   async pretransform() {
     // console.log("pretranssss", this.name);
@@ -24,7 +24,7 @@ module.exports = class SassDartAsset extends JSAsset {
       return;
     }
     // console.log("pretrans");
-    this.appendBuffer();
+    // this.appendBuffer();
   }
   async postProcess(generated) {
     // console.log("postProcess", this.name);
