@@ -7,9 +7,11 @@ module.exports = class SassDartAsset extends JSAsset {
   isTarget() {
     return this.name.indexOf("sass.dart.js") > 0;
   }
-  appendBuffer() {
+  injectGlobals() {
+    this.addDependency("process");
+    this.globals.set("process", `var process = require("process");`);
+
     this.addDependency("buffer");
-    // this.addDependency("process");
     this.globals.set("buffer", `global.Buffer = require("buffer").Buffer;`);
   }
   async transform() {
@@ -17,11 +19,9 @@ module.exports = class SassDartAsset extends JSAsset {
     if (!this.isTarget()) {
       return;
     }
-    this.appendBuffer();
+    this.injectGlobals();
   }
   async postProcess(generated) {
-    // console.log("postProcess", this.name);
-
     if (!this.isTarget()) {
       return generated;
     }
