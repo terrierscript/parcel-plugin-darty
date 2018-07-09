@@ -15,15 +15,18 @@ module.exports = class SassDartAsset extends JSAsset {
     );
   }
   async pretransform() {
-    return;
-    // if (!this.isTarget()) {
-    //   return;
-    // }
-    // console.log("pretrans");
-    // this.appendBuffer();
+    console.log("pretranssss");
+
+    await super.pretransform();
+    console.log("pretranssss");
+    if (!this.isTarget()) {
+      return;
+    }
+    console.log("pretrans");
+    this.appendBuffer();
   }
   async postProcess(generated) {
-    console.log("postProcess");
+    console.log("postpro");
     if (!this.isTarget()) {
       return generated;
     }
