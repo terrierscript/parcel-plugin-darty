@@ -3,6 +3,12 @@ const visitor = require("./visitor");
 // const replaceSelfLocation = js =>
 //   js.replace(/self\.location/g, "self.___location");
 
+const appendLocation = `
+global.___location = {
+  href: "/"
+}
+`;
+
 module.exports = class SassDartAsset extends JSAsset {
   isTarget() {
     return this.name.indexOf("sass.dart.js") > 0;
@@ -12,7 +18,11 @@ module.exports = class SassDartAsset extends JSAsset {
     if (!this.isTarget()) {
       return;
     }
+// <<<<<<< HEAD
     this.traverse(visitor);
+// =======
+//     this.globals.set("__location", appendLocation);
+// >>>>>>> origin/master
   }
   // async postProcess(generated) {
   //   if (!this.isTarget()) {
