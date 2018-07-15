@@ -18,17 +18,8 @@ module.exports = class SassDartAsset extends JSAsset {
     if (!this.isTarget()) {
       return;
     }
-// <<<<<<< HEAD
+    await this.parseIfNeeded();
+    this.isAstDirty = true;
     this.traverse(visitor);
-// =======
-//     this.globals.set("__location", appendLocation);
-// >>>>>>> origin/master
   }
-  // async postProcess(generated) {
-  //   if (!this.isTarget()) {
-  //     return generated;
-  //   }
-  //   generated[0].value = replaceSelfLocation(generated[0].value);
-  //   return generated;
-  // }
 };

@@ -17,6 +17,7 @@ async function runBundle() {
   const bundle = await bundler.bundle();
   console.log("finisish");
   // bundler.serve();
+  return 
 }
 
 runBundle();

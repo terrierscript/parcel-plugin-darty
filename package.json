@@ -4,10 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "parcel-bundler": "^1.9.6"
   },
   "devDependencies": {
-    "sass": "^1.9.0"
+    "sass": "^1.9.2"
   },
   "peerDependencies": {
     "parcel-bundler": "^1.9.4"
