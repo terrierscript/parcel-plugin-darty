@@ -1,5 +1,3 @@
-const walk = require("babylon-walk");
-
 module.exports = {
   Identifier(path) {
     if (path.node.name != "location") {
